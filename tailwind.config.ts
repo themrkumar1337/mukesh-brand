@@ -1,29 +1,25 @@
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        background: "#050505",
-        foreground: "#ffffff",
+        background: "#020203", // Deep Obsidian
         brand: {
-          // Tactical Gold / Bronze for a premium executive feel
-          DEFAULT: "#c5a059", 
-          light: "#e2c28a",
-          dark: "#8e6f3e",
+          DEFAULT: "#D4AF37", // Metallic Gold
+          muted: "#1A1608",   // Gold-tinted dark grey
         },
         slate: {
-          950: "#0a0a0c",
+          950: "#08080A",
         }
       },
+      backgroundImage: {
+        'grid-pattern': "url('https://www.transparenttextures.com/patterns/stardust.png')",
+      }
     },
   },
   plugins: [],
 };
-
 export default config;
