@@ -1,11 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Custom branding for Bharat Security and Mukesh K. Rana's ventures */
-  --color-brand: #0070f3;
-  --color-brand-light: #3291ff;
-  --color-brand-dark: #0032a0;
+  /* 1. Base Backgrounds - Deep Onyx Series */
+  --color-background: #050505;
+  --color-section: #0b0b0b;
+  --color-card: #111111;
   
+  /* 2. Electric Blue Accents */
+  --color-accent: #3b82f6;
+  --color-accent-glow: #60a5fa;
+  
+  /* 3. Text Hierarchy */
+  --color-primary-text: #ffffff;
+  --color-secondary-text: #a1a1aa;
+  --color-subtle-text: #52525b;
+  
+  /* 4. Layout Radii */
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
   
@@ -13,7 +23,8 @@
 }
 
 :root {
-  --background: #000000;
+  /* Enforcing the new #050505 Background */
+  --background: #050505;
   --foreground: #ffffff;
 }
 
@@ -22,14 +33,25 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  /* Smooth scrolling for SEO-friendly navigation */
+  scroll-behavior: smooth;
 }
 
-/* Elite Glassmorphism Effect for Saumyaa Chat and Forms */
+/* Elite Glassmorphism - Adjusted for Onyx Palette */
 .glass {
-  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  background-color: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Hide scrollbar for cleaner UI */
+/* Selection color updated to Electric Blue */
+::selection {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* Hide scrollbar for ultra-clean Futuristic UI */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -40,6 +62,12 @@ body {
 
 @layer base {
   * {
-    @apply border-white/10;
+    /* Subtle borders for a high-end structural look */
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  h1, h2, h3 {
+    /* Prestigious font tracking for CEO branding */
+    letter-spacing: -0.02em;
   }
 }
