@@ -51,6 +51,8 @@ export default function Insights() {
           
           <motion.a 
             href="https://youtube.com/@mrkumarunfiltered"
+            target="_blank" // Opens in new tab
+            rel="noopener noreferrer" // Security best practice
             className="group flex items-center gap-4 text-[10px] font-black text-white uppercase tracking-[0.3em] pb-2 border-b border-[#3b82f6]/30 hover:border-[#3b82f6] transition-all"
           >
             Access All Briefings <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -92,6 +94,8 @@ export default function Insights() {
 
               <a 
                 href={item.link}
+                target="_blank" // Opens in new tab
+                rel="noopener noreferrer" // Security best practice
                 className="absolute bottom-8 right-8 md:bottom-12 md:right-12 w-14 h-14 rounded-full bg-[#050505] border border-white/5 flex items-center justify-center text-white group-hover:bg-[#3b82f6] group-hover:border-[#3b82f6] transition-all duration-500"
               >
                 <ArrowUpRight size={20} />

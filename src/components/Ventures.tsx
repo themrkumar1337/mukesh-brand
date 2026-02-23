@@ -41,7 +41,6 @@ export default function Ventures() {
 
   return (
     <section id="ventures" className="py-32 bg-[#050505] relative overflow-hidden">
-      {/* Decorative Branding Line - Electric Blue */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-[#3b82f6]/50 to-transparent" />
 
       <div className="container mx-auto px-6">
@@ -71,20 +70,22 @@ export default function Ventures() {
             transition={{ delay: 0.2 }}
             className="mt-8 text-[#a1a1aa] text-sm md:text-base max-w-2xl leading-relaxed"
           >
-            From the deep-tech infrastructure of <b>BharatSec</b> to the consumer luxury of <b>Lotus Drop</b>, 
-            my ventures are unified by a singular philosophy: uncompromising quality and secure innovation.
+            From the deep-tech infrastructure of <b>BharatSec</b> to the consumer luxury of <b>Lotus Drop</b>, my ventures are unified by uncompromising quality and secure innovation.
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {portfolio.map((item, idx) => (
-            <motion.div
+            <motion.a
               key={item.name}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group p-10 rounded-[2.5rem] bg-[#111111] border border-white/5 hover:border-[#3b82f6]/30 transition-all duration-700 relative overflow-hidden"
+              className="group p-10 rounded-[2.5rem] bg-[#111111] border border-white/5 hover:border-[#3b82f6]/30 transition-all duration-700 relative overflow-hidden block"
             >
               <div className="flex justify-between items-start mb-12">
                 <div className="p-5 bg-[#3b82f6]/5 rounded-2xl border border-[#3b82f6]/10 group-hover:bg-[#3b82f6]/10 transition-colors duration-500">
@@ -100,7 +101,9 @@ export default function Ventures() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white tracking-tight">{item.name}</h3>
+                <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-[#3b82f6] transition-colors">
+                  {item.name}
+                </h3>
                 <p className="text-[10px] text-[#3b82f6] font-black uppercase tracking-[0.3em] italic">
                   {item.role}
                 </p>
@@ -111,19 +114,16 @@ export default function Ventures() {
 
               <div className="mt-12 flex items-center justify-between pt-8 border-t border-white/5">
                 <div className="flex items-center gap-2 text-[9px] font-black text-white uppercase tracking-widest opacity-40 group-hover:opacity-100 group-hover:text-[#3b82f6] transition-all">
-                  Initialize Protocol <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  Explore Venture <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
-                <a 
-                  href={item.link} 
-                  className="p-3 rounded-full bg-white/5 text-[#52525b] hover:text-white hover:bg-[#3b82f6]/20 transition-all"
-                >
+                <div className="p-3 rounded-full bg-white/5 text-[#52525b] group-hover:text-white group-hover:bg-[#3b82f6]/20 transition-all">
                   <ExternalLink size={14} />
-                </a>
+                </div>
               </div>
 
-              {/* Decorative Corner Accent - Electric Blue */}
+              {/* Decorative Corner Accent */}
               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#3b82f6]/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
