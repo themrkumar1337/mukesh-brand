@@ -10,15 +10,15 @@ export default function Ventures() {
       role: "Founder & CEO",
       desc: "India's leading cybersecurity firm specializing in elite penetration testing, red teaming, and digital forensics.",
       icon: <Shield className="text-[#3b82f6]" size={24} />,
-      tags: ["Cybersecurity", "Core"],
+      tags: ["Cybersecurity","Trainings & Certification", "Core"],
       link: "https://bharatsec.com"
     },
     {
       name: "Static Nerd",
-      role: "Chief Architect",
+      role: "CO - Founder",
       desc: "A high-performance web development agency focused on modern stacks like Next.js and secure cloud infrastructure.",
       icon: <Code className="text-[#3b82f6]" size={24} />,
-      tags: ["DevOps", "Web Arch"],
+      tags: ["Web Development","App Development", "Web Arch"],
       link: "https://staticnerd.com"
     },
     {
@@ -26,15 +26,15 @@ export default function Ventures() {
       role: "Strategic Partner",
       desc: "A premium skincare and beauty brand defined by luxury branding and modern e-commerce experiences.",
       icon: <Sparkles className="text-[#3b82f6]" size={24} />,
-      tags: ["E-commerce", "Luxury"],
-      link: "https://lotusdrop.com"
+      tags: ["E-commerce","Beauty", "Luxury"],
+      link: "https://beauty.lotusdrop.store"
     },
     {
       name: "Smart Platter",
       role: "Innovation Lead",
       desc: "A next-generation culinary venture integrating tech-driven hospitality and premium catering services.",
       icon: <Utensils className="text-[#3b82f6]" size={24} />,
-      tags: ["Hospitality", "Tech"],
+      tags: ["Hospitality","Smart menu", "Tech"],
       link: "https://smartplatter.com"
     }
   ];

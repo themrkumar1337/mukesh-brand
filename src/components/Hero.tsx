@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Shield, ChevronRight, Cpu, Lock } from 'lucide-react'
+import { ChevronRight, Cpu, Lock } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -18,8 +18,9 @@ export default function Hero() {
         className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#3b82f6]/20 to-transparent z-0"
       />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl">
+      {/* REFINEMENT: Centered container with responsive padding */}
+      <div className="container mx-auto px-6 md:px-20 lg:px-32 relative z-10">
+        <div className="max-w-5xl w-full">
           
           {/* Executive Badge */}
           <motion.div 
@@ -29,17 +30,17 @@ export default function Hero() {
           >
             <Cpu size={14} className="text-[#3b82f6] animate-spin-slow" />
             <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#3b82f6]">
-              Cybersecurity Architect • 8 Years Exp
+              Cybersecurity Researcher • 8 Years Exp
             </span>
           </motion.div>
 
-          {/* Typography */}
+          {/* Typography - Balanced leading and tracking */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8 }}
           >
-            <h1 className="text-6xl md:text-[8rem] font-bold text-white leading-[0.85] tracking-tighter italic">
+            <h1 className="text-6xl md:text-[8rem] font-bold text-white leading-[0.9] md:leading-[0.85] tracking-tighter italic">
               Mukesh <span className="text-[#3b82f6] drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">K. Rana.</span>
             </h1>
             <p className="mt-8 text-lg md:text-2xl text-[#a1a1aa] font-light tracking-widest uppercase">
@@ -47,7 +48,7 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* SEO Body */}
+          {/* SEO Body - Indented for professional contrast */}
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -69,7 +70,7 @@ export default function Hero() {
               className="group relative overflow-hidden bg-[#3b82f6] text-white px-12 py-6 rounded-sm font-black text-[10px] uppercase tracking-[0.4em] transition-all duration-500 hover:bg-[#60a5fa]"
             >
               <span className="relative z-10 flex items-center gap-3">
-                Initialize Protocol
+                Explore Intelligence
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </a>
@@ -77,20 +78,16 @@ export default function Hero() {
             <div className="flex items-center gap-6">
                <Lock size={14} className="text-[#3b82f6]/50" />
                <span className="text-[9px] font-bold text-[#52525b] uppercase tracking-[0.3em]">
-                 eJPT & ISC2 SECURED
+                 eJPT • NSE • SANS DFIR & CSFPC SECURED
                </span>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* FIXED: RESPONSIVE HUD LABELS 
-          - Horizontal on Mobile (Left Bottom)
-          - Vertical on Desktop (Side HUD)
-      */}
-      <div className="absolute left-6 md:left-10 bottom-8 md:bottom-20 z-20">
+      {/* Side HUD Labels - Positioned for balance */}
+      <div className="absolute left-6 md:left-12 bottom-10 md:bottom-20 z-20">
         <div className="flex flex-row md:flex-col items-center gap-4 md:gap-6">
-          {/* Status Indicator Line */}
           <div className="w-8 md:w-1 h-[1px] md:h-12 bg-gradient-to-r md:bg-gradient-to-b from-[#3b82f6] to-transparent" />
           
           <div className="flex flex-row md:flex-col gap-4 md:gap-8">
@@ -107,10 +104,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Desktop-only Ops Label */}
-      <div className="absolute right-10 bottom-20 hidden xl:block">
+      {/* Right Side Branding */}
+      <div className="absolute right-12 bottom-20 hidden xl:block">
         <span className="text-[8px] font-black text-[#3b82f6]/20 uppercase tracking-[1em] [writing-mode:vertical-lr]">
-          BHARATSEC OPS
+          BHARATSEC HQ
         </span>
       </div>
     </section>

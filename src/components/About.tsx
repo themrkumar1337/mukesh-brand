@@ -7,7 +7,7 @@ import { ShieldCheck, Award, Target, Landmark, Scan } from 'lucide-react'
 export default function About() {
   const accolades = [
     { icon: <ShieldCheck size={20} />, title: "CEO & Founder", detail: "Bharat Security (BharatSec)" },
-    { icon: <Award size={20} />, title: "Certified Expert", detail: "eJPT • ISC2 Credentials" },
+    { icon: <Award size={20} />, title: "Certified Expert", detail: "eJPT • NSE • SANS DFIR • CSFPC Credentials" },
     { icon: <Target size={20} />, title: "8+ Years", detail: "Cybersecurity Leadership" },
     { icon: <Landmark size={20} />, title: "Entrepreneur", detail: "Multidisciplinary Ventures" }
   ];
@@ -55,7 +55,7 @@ export default function About() {
                />
 
                <div className="absolute bottom-8 right-8 rotate-90 origin-right">
-                  <span className="text-[8px] font-medium text-[#52525b] uppercase tracking-[1em]">Restricted Access</span>
+                  <span className="text-[8px] font-medium text-[#52525b] uppercase tracking-[1em]">Mukesh K. Rana</span>
                </div>
 
                <div className="absolute bottom-8 left-8">
@@ -80,7 +80,7 @@ export default function About() {
                 As the <b>Founder and CEO of Bharat Security (BharatSec)</b>, I have spent nearly a decade architecting the security frameworks that protect modern enterprises. My career is defined by <b>8 years of leadership</b> in offensive security and red-teaming operations.
               </p>
               <p>
-                Beyond cybersecurity, my entrepreneurial drive has led to the successful launch of ventures across diverse industries—from the luxury branding of <b>Lotus Drop</b> to the modern culinary experience of <b>Brew Haven Café</b>.
+                Beyond cybersecurity, my entrepreneurial vision has expanded into multiple industries—from the premium branding of <b>Lotus Drop</b> to the scalable digital dining platform <b>Smartplatter</b>.
               </p>
               <p>
                 Whether consulting for a global firm or scaling <b>Static Nerd</b>, the objective remains the same: <b>excellence without compromise.</b>

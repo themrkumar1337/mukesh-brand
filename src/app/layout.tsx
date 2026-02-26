@@ -2,11 +2,18 @@ import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
-// World-Class SEO Metadata
+// Executive SEO Metadata
 export const metadata: Metadata = {
   title: "Mukesh K. Rana | CEO & Founder of Bharat Security",
   description: "8+ years of cybersecurity leadership and venture building. Founder of BharatSec, Static Nerd, and Smart Platter.",
-  keywords: ["Mukesh K. Rana", "CEO Bharat Security", "BharatSec Founder", "Cybersecurity Leader India", "Smart Platter Founder"],
+  keywords: [
+    "Mukesh K. Rana", 
+    "CEO Bharat Security", 
+    "BharatSec Founder", 
+    "Cybersecurity Leader India", 
+    "Smart Platter Founder", 
+    "Lotus Drop Entrepreneur"
+  ],
   metadataBase: new URL("https://mukeshkrana.com"),
   icons: {
     icon: [
@@ -18,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mukesh K. Rana | Strategic Portfolio",
     description: "Official HQ of Mukesh K. Rana. CEO of Bharat Security.",
-    images: [{ url: "/mukesh-rana.jpg" }], // Uses your new public image for social sharing
+    images: [{ url: "/mukesh-rana.jpg" }],
     type: "website",
   },
 };
@@ -28,7 +35,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Global Entity Schema for Google Knowledge Graph
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -48,13 +54,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* JSON-LD for Google Search Dominance */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-
-        {/* Cal.com Strategic Integration */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -77,14 +80,18 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased bg-background text-white selection:bg-brand/30 selection:text-brand">
+      {/* REFINEMENT: 
+          1. 'overflow-x-hidden' on the body prevents horizontal layout shifts.
+          2. 'flex flex-col' ensures the footer stays at the bottom.
+      */}
+      <body className="antialiased bg-[#050505] text-white selection:bg-[#3b82f6]/30 selection:text-[#3b82f6] overflow-x-hidden min-h-screen flex flex-col">
         <Toaster 
           position="bottom-center"
           toastOptions={{
             style: {
-              background: '#0a0a0a',
+              background: '#0b0b0b',
               color: '#fff',
-              border: '1px solid rgba(212, 175, 55, 0.1)', // Subtle Gold border
+              border: '1px solid rgba(59, 130, 246, 0.1)',
               borderRadius: '1rem',
               backdropFilter: 'blur(10px)',
               fontSize: '12px',
@@ -93,7 +100,14 @@ export default function RootLayout({
             },
           }}
         />
-        {children}
+        
+        {/* REFINEMENT: 
+            Wrapping children in a 'relative w-full' container ensures 
+            all sections (Hero, About, etc.) align to the viewport center.
+        */}
+        <main className="relative w-full flex-grow">
+          {children}
+        </main>
       </body>
     </html>
   );

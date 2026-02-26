@@ -9,19 +9,19 @@ export default function Insights() {
       type: "Vlog",
       title: "Life of a Cyber CEO: Rebranding & Vision",
       desc: "An unfiltered look into the journey of scaling BharatSec and the launch of my personal brand.",
-      channel: "Mr Kumar Unfiltered",
+      channel: "BharatSec - Bharat Security",
       stat: "Latest Episode",
       icon: <Youtube className="text-[#3b82f6]" size={18} />,
-      link: "https://youtube.com/@mrkumarunfiltered"
+      link: "https://youtube.com/@bharatsec"
     },
     {
       type: "Briefing",
       title: "Defensive Architectures for 2026",
       desc: "Strategic insights into fortifying enterprise infrastructure against next-gen threat vectors.",
-      channel: "BharatSec Intel",
+      channel: "BharatSec Blog",
       stat: "5 min read",
       icon: <Newspaper className="text-[#3b82f6]" size={18} />,
-      link: "#"
+      link: "https://blog.bharatsec.com"
     }
   ];
 
@@ -50,7 +50,7 @@ export default function Insights() {
           </div>
           
           <motion.a 
-            href="https://youtube.com/@mrkumarunfiltered"
+            href="https://youtube.com/@bharatsec"
             target="_blank" // Opens in new tab
             rel="noopener noreferrer" // Security best practice
             className="group flex items-center gap-4 text-[10px] font-black text-white uppercase tracking-[0.3em] pb-2 border-b border-[#3b82f6]/30 hover:border-[#3b82f6] transition-all"

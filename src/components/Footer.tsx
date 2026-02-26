@@ -1,12 +1,10 @@
 "use client"
 import React from 'react'
-import { motion } from 'framer-motion'
 import { 
   Linkedin, 
   Youtube, 
   Instagram, 
   Twitter, 
-  Shield, 
   ArrowUp, 
   Mail, 
   MapPin, 
@@ -21,40 +19,41 @@ export default function Footer() {
   const ventures = [
     { name: "Bharat Security", href: "https://bharatsec.com" },
     { name: "Static Nerd", href: "https://staticnerd.com" },
-    { name: "Lotus Drop", href: "https://lotusdrop.store" },
+    { name: "Lotus Drop", href: "https://beauty.lotusdrop.store" },
     { name: "Smart Platter", href: "https://smartplatter.com" }
   ];
 
   const socialLinks = [
     { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/mukeshkrana", label: "LinkedIn" },
-    { icon: <Youtube size={18} />, href: "https://youtube.com/@mrkumarunfiltered", label: "YouTube" },
-    { icon: <Twitter size={18} />, href: "https://x.com/mukeshkrana", label: "X (Twitter)" },
-    { icon: <Instagram size={18} />, href: "https://instagram.com/mukeshkrana", label: "Instagram" },
+    { icon: <Youtube size={18} />, href: "https://youtube.com/@bharatsec", label: "YouTube" },
+    { icon: <Twitter size={18} />, href: "https://x.com/MukeshK_Rana", label: "X (Twitter)" },
+    { icon: <Instagram size={18} />, href: "https://instagram.com/mukeshkrana_official", label: "Instagram" },
   ];
 
   return (
-    <footer className="bg-[#050505] border-t border-white/5 pt-24 pb-12 overflow-hidden">
+    <footer className="bg-[#050505] border-t border-white/5 pt-20 md:pt-24 pb-12 overflow-hidden">
       <div className="container mx-auto px-6">
         
-        {/* Layer 1: Strategic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+        {/* Layer 1: Strategic Grid - Mobile Optimized */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-20 md:mb-24">
           
           {/* Brand Identity & Expanded Socials */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-[#3b82f6] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-                <Shield size={20} className="text-white" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-black text-sm uppercase tracking-tighter italic">Mukesh K. Rana</span>
-                <span className="text-[8px] text-[#3b82f6] font-bold uppercase tracking-[0.4em]">Secure Operations</span>
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="flex flex-col mb-8">
+              <span className="text-white font-black text-base uppercase tracking-tighter italic leading-none">
+                Mukesh K. Rana
+              </span>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="h-[1px] w-4 bg-[#3b82f6]" />
+                <span className="text-[7px] text-[#3b82f6] font-bold uppercase tracking-[0.5em]">
+                  Executive Operations
+                </span>
               </div>
             </div>
-            <p className="text-[#a1a1aa] text-xs leading-relaxed font-light mb-8">
+            <p className="text-[#a1a1aa] text-xs leading-relaxed font-light mb-8 max-w-sm">
               Defining the frontier of digital defense for 8+ years. Architecting secure ecosystems and high-stakes ventures across multiple industries.
             </p>
             
-            {/* Expanded Social Icon Row */}
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (
                 <a 
@@ -71,23 +70,23 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div>
-            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.4em] mb-8 flex items-center gap-2">
-              <Globe size={12} className="text-[#3b82f6]" /> Core Navigation
+          {/* Navigation Links - Side-by-Side on Tablet */}
+          <div className="space-y-8">
+            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.4em] flex items-center gap-2">
+              <Globe size={12} className="text-[#3b82f6]" /> Navigation
             </h4>
             <ul className="space-y-4">
-              <li><a href="#hero" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Strategic Philosophy</a></li>
-              <li><a href="#about" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Personnel Briefing</a></li>
-              <li><a href="#insights" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Intelligence Hub</a></li>
-              <li><a href="#book" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Initialize Access</a></li>
+              <li><a href="#hero" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Philosophy</a></li>
+              <li><a href="#about" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Personnel</a></li>
+              <li><a href="#insights" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Intelligence</a></li>
+              <li><a href="#book" className="text-[#52525b] hover:text-white text-xs transition-colors italic">Initialize</a></li>
             </ul>
           </div>
 
           {/* Venture Ecosystem */}
-          <div>
-            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.4em] mb-8 flex items-center gap-2">
-              <Cpu size={12} className="text-[#3b82f6]" /> Global Ventures
+          <div className="space-y-8">
+            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.4em] flex items-center gap-2">
+              <Cpu size={12} className="text-[#3b82f6]" /> Ventures
             </h4>
             <ul className="space-y-4">
               {ventures.map((item) => (
@@ -106,9 +105,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Direct Access */}
-          <div>
-            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.4em] mb-8">Direct Access</h4>
+          {/* Contact Access */}
+          <div className="space-y-8">
+            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.4em]">Contact</h4>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <Mail size={16} className="text-[#3b82f6] mt-1" />
@@ -120,26 +119,25 @@ export default function Footer() {
               <div className="flex items-start gap-4">
                 <MapPin size={16} className="text-[#3b82f6] mt-1" />
                 <div>
-                  <p className="text-[10px] font-bold text-[#52525b] uppercase tracking-widest">Base Operations</p>
-                  <p className="text-white text-xs font-medium">India</p>
+                  <p className="text-[10px] font-bold text-[#52525b] uppercase tracking-widest">Base</p>
+                  <p className="text-white text-xs font-medium">Ranchi, India</p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
 
         {/* Layer 2: Technical Utility Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-wrap justify-center gap-10">
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4">
             <span className="text-[9px] font-bold text-[#52525b] uppercase tracking-[0.3em]">
-              © {currentYear} Mukesh K. Rana.
+              © {currentYear} Mukesh K. Rana
             </span>
-            <span className="text-[9px] font-bold text-[#3b82f6]/60 uppercase tracking-[0.3em] flex items-center gap-2">
-              <Shield size={10} /> ISO 27001 ALIGNED
+            <span className="text-[9px] font-bold text-[#3b82f6]/60 uppercase tracking-[0.3em]">
+              ISO 27001 ALIGNED
             </span>
             <span className="text-[9px] font-bold text-[#52525b] uppercase tracking-[0.3em]">
-              ID: MKR-HQ-2026
+              MKR-HQ-2026
             </span>
           </div>
 
