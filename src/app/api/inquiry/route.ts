@@ -2,71 +2,57 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
-  // Check for the API key at runtime to prevent Vercel build errors
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
-    console.error("Critical: RESEND_API_KEY is missing from environment variables.");
-    return NextResponse.json(
-      { error: "Email service configuration missing" }, 
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Service Offline" }, { status: 500 });
   }
 
-  // Initialize Resend safely inside the request handler
   const resend = new Resend(apiKey);
 
   try {
     const { name, email, type, message } = await req.json();
 
-    // 1. Internal Notification (Email to Mukesh's Office)
+    // 1. CONDENSED NOTIFICATION (To: Your Office)
     await resend.emails.send({
-      from: 'Mukesh HQ <office@mukeshkrana.com>',
-      to: ['mukesh@bharatsec.com'], // Sent to your primary business email
-      subject: `New Strategic Inquiry: ${type}`,
+      from: 'HQ <office@mukeshkrana.com>',
+      to: ['mukesh@bharatsec.com'], //
+      subject: `[INQUIRY] ${name} — ${type}`,
       html: `
-        <div style="font-family: sans-serif; padding: 20px; color: #333;">
-          <h2>Strategic Inquiry Received</h2>
-          <p><b>From:</b> ${name} (${email})</p>
-          <p><b>Interest:</b> ${type}</p>
-          <hr />
-          <p><b>Message:</b></p>
-          <p>${message}</p>
+        <div style="font-family: sans-serif; font-size: 13px; color: #111;">
+          <p><strong>From:</strong> ${name} (${email})</p>
+          <p><strong>Topic:</strong> ${type}</p>
+          <div style="border-left: 2px solid #3b82f6; padding-left: 15px; margin-top: 10px; color: #444;">
+            ${message}
+          </div>
         </div>
       `
     });
 
-    // 2. Auto-Reply (Professional Acknowledgment to the Visitor)
+    // 2. DETAILED ACKNOWLEDGMENT (To: The User)
     await resend.emails.send({
       from: 'Mukesh K. Rana <office@mukeshkrana.com>',
       to: [email],
-      subject: `Acknowledgment: Inquiry regarding ${type}`,
+      // REFINEMENT: If they click 'Reply', it goes straight to your personal business email
+      replyTo: 'mukesh@bharatsec.com', 
+      subject: `Re: Your Inquiry regarding ${type}`,
       html: `
-        <div style="font-family: 'Helvetica', sans-serif; max-width: 600px; margin: auto; padding: 40px; border: 1px solid #eee; border-radius: 20px;">
-          <h2 style="color: #111; letter-spacing: -1px;">Acknowledgment of Inquiry</h2>
-          <p style="color: #444; line-height: 1.6;">Hello ${name},</p>
-          <p style="color: #444; line-height: 1.6;">
-            Thank you for reaching out regarding <b>${type}</b>. This message serves as a formal confirmation that your inquiry has been received by my office.
-          </p>
-          <p style="color: #444; line-height: 1.6;">
-            I personally review all strategic proposals and partnership requests. Given the current volume of operations across <b>BharatSec</b> and my other ventures, please allow 48-72 hours for a formal response.
-          </p>
-          <p style="color: #444; line-height: 1.6;">
-            In the meantime, feel free to explore my latest insights on cybersecurity and entrepreneurship via my official channels.
-          </p>
-          <br />
-          <p style="color: #111; font-weight: bold; margin-bottom: 5px;">Mukesh K. Rana</p>
-          <p style="color: #888; font-size: 12px; margin-top: 0;">CEO & Founder, Bharat Security</p>
+        <div style="font-family: sans-serif; max-width: 600px; color: #333; line-height: 1.7; padding: 20px;">
+          <p>Hi ${name},</p>
+          <p>Thank you for reaching out. I've received your message regarding <strong>${type}</strong> and appreciate the context you provided.</p>
+          <p>I personally review every inquiry to ensure it aligns with my current operational focus. Between leading <strong>Bharat Security</strong> and managing my other ventures, please allow me about 48 to 72 hours to review your briefing and respond properly.</p>
+          <p>If you have any additional documents or time-sensitive details, <b>feel free to reply directly to this email</b>.</p>
+          <p>Best regards,</p>
+          <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+            <p style="margin: 0; font-weight: bold; color: #000; font-size: 16px;">Mukesh K. Rana</p>
+            <p style="margin: 0; color: #3b82f6; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Founder & CEO, Bharat Security</p>
+          </div>
         </div>
       `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Inquiry Transmission Error:", error);
-    return NextResponse.json(
-      { error: "Transmission failed", details: error.message }, 
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Transmission failed" }, { status: 500 });
   }
 }
